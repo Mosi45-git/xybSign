@@ -30,4 +30,4 @@ jobs:
 
       - name: 运行签到
         run: |
-          node ./index.js '${{ secrets.XYB }}'
+          node ./index.js '${{ secrets.XYBQD }}'
