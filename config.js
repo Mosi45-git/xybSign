@@ -2,13 +2,13 @@ const config = {
   mode: "in", // 签到:in,签退:out
   accounts: [
     {
-      username: "18688362862", //用户名
-      password: "modibai45", //密码
-      openId: "ooru94qv1yX3qILa5H-XtSj_kveU", //微信小程序抓包openid(可选)
-      unionId: "oHY-uweNJ3yIwm_ftqQ2Rr94sN4s", //微信小程序抓包unionId(可选)
+      username: "", //用户名
+      password: "", //密码
+      openId: "", //微信小程序抓包openid(可选)
+      unionId: "", //微信小程序抓包unionId(可选)
       sign: true, //是否自动签到
       reSign: true, //是否重新签到
-      location: "113.70672580295138,22.985329047309026", //经纬度 (可选),例如 "120.210792,30.246026"、"经度,纬度",不填写则自动获取（推荐）
+      location: "", //经纬度 (可选),例如 "120.210792,30.246026"、"经度,纬度",不填写则自动获取（推荐）
       // signImagePath: "./images/1.jpeg", //签到图片
       // needReport: false, //是否自动填写周报
     },
