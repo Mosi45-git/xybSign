@@ -1,4 +1,4 @@
-name: 签到 # yml文件名
+name: main # yml文件名
  
 on:
   workflow_dispatch:
