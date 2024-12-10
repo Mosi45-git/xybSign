@@ -67,6 +67,7 @@ async function xybSign(config) {
             "user-agent":
               "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1",
             "Content-Type": "application/json",
+            "Referer":"https://servicewechat.com/wx9f1c2e0bbc10673c/456/page-frame.html",
           },
         })
         .then((res) => {
