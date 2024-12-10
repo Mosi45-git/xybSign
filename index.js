@@ -94,7 +94,7 @@ async function xybSign(config) {
 
   const login = async () => {
     console.log(">> 执行登录");
-    const { sessionId, loginerId, loginKey } = await $http.post(apis.login, {params:{
+    const { sessionId, loginerId, loginKey } = await $http.post(apis.login, {
       username: config.username,
       password: config.password,
       openId: config.openId,
@@ -104,11 +104,7 @@ async function xybSign(config) {
       platform: "mac",
       system: "Mac",
       deviceId: "",
-    },headers: {
-      "user-agent":
-        "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1",
-      "Referer":"https://servicewechat.com/wx9f1c2e0bbc10673c/456/page-frame.html",
-    }});
+    });
     cookie = "JSESSIONID=" + sessionId;
     accountInfo.loginerId = loginerId;
   };
