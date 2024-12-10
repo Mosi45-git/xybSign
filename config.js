@@ -35,7 +35,7 @@ const modeCN = {
 config.modeCN = modeCN[config.mode];
 
 const apis = {
-  login: "login/login.action",
+  login: "login/login!wx.action",
   accountInfo: "account/LoadAccountInfo.action",
   projects: "student/progress/ProjectList.action",
   tasks: "student/progress/ProjectProgressInfo.action",
