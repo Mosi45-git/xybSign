@@ -1,6 +1,6 @@
 import os
 
-
-USERINFO = os.environ["USERWXMINITOKEN"]
-print(USERINFO)
+if __name__ == '__main__':
+  USERINFO = os.environ["USERWXMINITOKEN"]
+  print(USERINFO)
 
