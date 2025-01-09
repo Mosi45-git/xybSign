@@ -20,12 +20,13 @@ def log(content):
 
 urls = {
     'login': 'https://xcx.xybsyw.com/login/login!wx.action',
+    'loadAccount': 'https://xcx.xybsyw.com/account/LoadAccountInfo.action',
     'ip': 'https://api.bilibili.com/x/web-interface/zone?jsonp=jsonp',
     'amap': 'https://restapi.amap.com/v3/geocode/regeo?key=c222383ff12d31b556c3ad6145bb95f4&location={lon}%2C{lat}&extensions=all&s=rsx&platform=WXJS&appname=c222383ff12d31b556c3ad6145bb95f4&sdkversion=1.2.0&logversion=2.0',
     'address': 'https://xcx.xybsyw.com/student/clock/GetPlan!detail.action',
     'trainId': 'https://xcx.xybsyw.com/student/clock/GetPlan!getDefault.action',
     'sign':'https://xcx.xybsyw.com/student/clock/PostNew.action',
-    'new_sign':'https://xcx.xybsyw.com/student/clock/Post!updateClock.action'
+    'new_sign':'https://xcx.xybsyw.com/student/clock/Post!updateClock.action',
 }
 
 #请求签名
@@ -189,6 +190,20 @@ def sign_form(userInfo):
     }
     return data
 
+# 获取username
+def getUsername(sessionId):
+    headers = getHeader("xcx.xybsyw.com")
+    headers['cookie'] = f'JSESSIONID={sessionId}'
+    url = urls['loadAccount']
+    resp = requests.post(url=url, headers=headers).json()
+    if ('成功' in resp['msg']):
+        ret = resp['data']['loginer']
+        log(f"username:{ret}获取成功")
+        return ret
+    else:
+        log('获取username失败')
+        exit(-1)
+
 #发送签到请求
 def Sign(sessionId, data,type):
     headers = getHeader("xcx.xybsyw.com")
@@ -208,26 +223,22 @@ def getUserInfo():
     return user
 
 if __name__ == '__main__':
-    #userInfo = getUserInfo()
-    a = os.environ['USERWXMINITOKEN']
-    print(a)
-    userInfo = dict()
-    userInfo['token'] = dict()
-    userInfo['token']["openId"] = re.findall('openId=(.*);u',a)[0]
-    userInfo['token']["unionId"] = re.findall('unionId=(.*);l',a)[0]
-    sessions = login(userInfo)
-    sessionId = sessions['sessionId']
-    loginerId = sessions['loginerId']
-    userInfo['trainId'] = getTrainID(sessionId)
-    position = getPosition(sessionId, userInfo['trainId'])
-    userInfo.update(position)
-    sign = Sign(sessionId, sign_form(userInfo),'sign')
-    if sign == 'success':
-        print("签到成功")
-    else:
-        print(sign)
-    sign = Sign(sessionId, sign_form(userInfo),'new_sign')
-    if sign == 'success':
-        print("重新签到成功")
-    else:
-        print(sign)
+    userInfo_list = getUserInfo()
+    for userInfo in userInfo_list:
+        sessions = login(userInfo)
+        sessionId = sessions['sessionId']
+        loginerId = sessions['loginerId']
+        userInfo['trainId'] = getTrainID(sessionId)
+        position = getPosition(sessionId, userInfo['trainId'])
+        userInfo.update(position)
+        getUsername(sessionId)
+        sign = Sign(sessionId, sign_form(userInfo),'sign')
+        if sign == 'success':
+            print("签到成功")
+        else:
+            print(sign)
+        sign = Sign(sessionId, sign_form(userInfo),'new_sign')
+        if sign == 'success':
+            print("重新签到成功")
+        else:
+            print(sign)
