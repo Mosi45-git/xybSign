@@ -207,12 +207,10 @@ def getUserInfo():
     fp.close()
     return user
 
-
-
-
 if __name__ == '__main__':
     #userInfo = getUserInfo()
     a = os.environ['USERWXMINITOKEN']
+    print(a)
     userInfo = dict()
     userInfo['token'] = dict()
     userInfo['token']["openId"] = re.findall('openId=(.*);u',a)[0]
