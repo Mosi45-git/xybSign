@@ -162,11 +162,11 @@ def get_adcode():
     headers = {'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0'}
     data = requests.get(url=urls['ip'],headers=headers).json()['data']
     data.update(requests.get(url=urls['amap'].replace('{lon}',str(data['longitude'])).replace('{lat}',str(data['latitude'])),headers=headers).json()['regeocode'])
-    print("IP："+data["addr"])
-    print("国家："+data["country"])
-    print("ISP：" + data["isp"])
-    print("维度："+str(data['latitude']))
-    print("经度："+str(data['longitude']))
+    #print("IP："+data["addr"])
+    #print("国家："+data["country"])
+    #print("ISP：" + data["isp"])
+    #print("维度："+str(data['latitude']))
+    #print("经度："+str(data['longitude']))
     #print("定位地址："+data["formatted_address"])
     #print("邮政编码："+data['addressComponent']["adcode"])
     #print(f"更多定位信息{data['addressComponent']}")
