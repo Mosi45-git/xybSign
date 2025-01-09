@@ -25,6 +25,7 @@ jobs:
           python-version: '3.x'
           
       - name: 账户信息导入到环境  
+        run: echo "MY_SECRET=${{ secrets.MY_SECRET }}" >> $GITHUB_ENV
         env:
           USERWXMINITOKEN: ${{ secrets.XYBQD }}
 
