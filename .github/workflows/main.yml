@@ -24,10 +24,10 @@ jobs:
         with:
           python-version: '3.x'
           
-      - name: 安装依赖  
-        run: |
-          ls
+      - name: 账户信息导入到环境  
+        env:
+          USERWXMINITOKEN: ${{ secrets.XYBQD }}
 
       - name: 运行签到
         run: |
-          python ./test.py '${{ secrets.XYBQD }}'
+          python ./test.py
