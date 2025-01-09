@@ -1,5 +1,5 @@
 import os
 
 if __name__ == '__main__':
-  print(os.environ['USERWXMINITOKEN'])
+  print(os.environ['USERWXMINITOKEN'].replace("username",''))
 
