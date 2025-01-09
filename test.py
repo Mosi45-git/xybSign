@@ -1,5 +1,4 @@
-import os
+import sys
 
 # 获取环境变量（Secret）的值
-my_secret = os.getenv('MY_SECRET')
-print(my_secret)
+print(sys.argv[0])
