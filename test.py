@@ -168,7 +168,7 @@ def get_adcode():
     print("维度："+str(data['latitude']))
     print("经度："+str(data['longitude']))
     #print("定位地址："+data["formatted_address"])
-    print("邮政编码："+data['addressComponent']["adcode"])
+    #print("邮政编码："+data['addressComponent']["adcode"])
     #print(f"更多定位信息{data['addressComponent']}")
     return data['addressComponent']["adcode"]
 
