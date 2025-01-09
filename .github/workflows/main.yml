@@ -24,11 +24,7 @@ jobs:
         with:
           python-version: '3.x'
           
-      - name: 账户信息导入到环境  
-        run: echo "USERWXMINITOKE=${{ secrets.XYBQD }}" >> $GITHUB_ENV
+      - name: 运行签到
+        run: python ./test.py
         env:
           USERWXMINITOKEN: ${{ secrets.XYBQD }}
-
-      - name: 运行签到
-        run: |
-          python ./test.py
