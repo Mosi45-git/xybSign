@@ -19,14 +19,14 @@ def log(content):
     sys.stdout.flush()
 
 urls = {
-    'login': 'https://xcx.xybsyw.com/login/login!wx.action',
-    'loadAccount': 'https://xcx.xybsyw.com/account/LoadAccountInfo.action',
+    'login': 'https://xcxgk1ri59hxo.xybsyw.com/login/login!wx.action',
+    'loadAccount': 'https://xcxgk1ri59hxo.xybsyw.com/account/LoadAccountInfo.action',
     'ip': 'https://api.bilibili.com/x/web-interface/zone?jsonp=jsonp',
     'amap': 'https://restapi.amap.com/v3/geocode/regeo?key=c222383ff12d31b556c3ad6145bb95f4&location={lon}%2C{lat}&extensions=all&s=rsx&platform=WXJS&appname=c222383ff12d31b556c3ad6145bb95f4&sdkversion=1.2.0&logversion=2.0',
-    'address': 'https://xcx.xybsyw.com/student/clock/GetPlan!detail.action',
-    'trainId': 'https://xcx.xybsyw.com/student/clock/GetPlan!getDefault.action',
-    'sign':'https://xcx.xybsyw.com/student/clock/PostNew.action',
-    'new_sign':'https://xcx.xybsyw.com/student/clock/Post!updateClock.action',
+    'address': 'https://xcxgk1ri59hxo.xybsyw.com/student/clock/GetPlan!detail.action',
+    'trainId': 'https://xcxgk1ri59hxo.xybsyw.com/student/clock/GetPlan!getDefault.action',
+    'sign':'https://xcxgk1ri59hxo.xybsyw.com/student/clock/PostNew.action',
+    'new_sign':'https://xcxgk1ri59hxo.xybsyw.com/student/clock/Post!updateClock.action',
 }
 
 #请求签名
